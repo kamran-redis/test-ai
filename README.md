@@ -73,3 +73,62 @@ Or using the Gradle `run` task (arguments are passed after `--args`):
 The application will print the benchmark results, including total operations, operations per second (OPS), and average latency.
 
 **Note:** The `build.gradle` includes the `application` plugin and shadow JAR configuration (or equivalent fat JAR) to package dependencies, so `java -jar build/libs/jedis-all.jar` (the JAR name might vary slightly based on exact Gradle config, e.g. `jedis.jar` or `jedis-VERSION-all.jar`) should work. If you encounter issues with finding the main class or dependencies, ensure your `build.gradle` correctly configures the `mainClassName` and packages the dependencies into the JAR. The provided `build.gradle` is set up to create a fat JAR.
+
+---
+
+## Go Redis Benchmark
+
+### Original Prompt (Go version)
+
+create a sample golang application connecting to redis , add parallalism and measuring operations per second and latency. Give the ability to provide parameters using command line create the code in a subdirectory golang.
+
+Also make this prompt part of Readme
+
+---
+
+### Building and Running the Go Benchmark
+
+This project uses Go modules.
+
+#### Prerequisites
+
+*   Go (version 1.16 or higher recommended) installed.
+*   A running Redis instance.
+
+#### Building
+
+1.  Navigate to the `golang/redis-benchmark` directory:
+    ```bash
+    cd golang/redis-benchmark
+    ```
+2.  Build the application:
+    ```bash
+    go build -o redis-benchmark-go .
+    ```
+    This command will compile the source code and create an executable named `redis-benchmark-go` (or `redis-benchmark-go.exe` on Windows) in the current directory.
+
+#### Running
+
+After a successful build, you can run the application.
+
+To run the application with default settings (connects to `localhost:6379`, 4 goroutines, 10000 operations per goroutine):
+
+```bash
+./redis-benchmark-go
+```
+
+You can specify command-line arguments to change the behavior:
+
+*   `-host <hostname>`: Redis server hostname (e.g., `127.0.0.1`). Default: `localhost`.
+*   `-port <port_number>`: Redis server port (e.g., `6380`). Default: `6379`.
+*   `-goroutines <num_goroutines>`: Number of concurrent goroutines (e.g., `8`). Default: `4`.
+*   `-operations <num_ops_per_goroutine>`: Number of SET/GET operations each goroutine will perform (e.g., `50000`). Default: `10000`.
+*   `-password <password>`: Password for your Redis instance, if required. Default: `""` (empty).
+
+**Example with custom parameters:**
+
+```bash
+./redis-benchmark-go -host my.redis.server -port 6379 -goroutines 8 -operations 25000 -password "yourSecurePassword"
+```
+
+The application will print the benchmark results, including total operations, operations per second (OPS), and average latency.

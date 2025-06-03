@@ -1,0 +1,104 @@
+# General
+.DS_Store
+logs/
+*.log
+*.swp
+*~
+*.tmp
+
+# Java (Gradle, IDEs - from existing java/jedis/.gitignore and common ones)
+# Gradle
+.gradle
+build/
+!build/wrapper/gradle-wrapper.jar # Exclude this line if you don't check in the wrapper jar
+# Or if you build your wrapper locally and upload it, then use
+# !gradle-wrapper.jar
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+
+# Eclipse
+.classpath
+.project
+.settings/
+bin/
+
+# NetBeans
+nbproject/private/
+# build/ # Already covered by general build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+# VS Code
+.vscode/
+
+# Mac
+# .DS_Store # Already covered by general .DS_Store
+
+# Logs
+# logs/ # Already covered by general logs/
+# *.log # Already covered by general *.log
+
+# Other (some might be duplicates but it's fine)
+*.jar
+*.war
+*.ear
+target/
+
+# Common Java/Gradle specific (if not already covered by above)
+*.class
+# *.jar # Already covered
+# *.war # Already covered
+# *.ear # Already covered
+# target/ # Already covered
+# build/ # Already covered
+# .gradle/ # Already covered
+# out/ # Already covered
+
+# IntelliJ IDEA (duplicates from above, ensuring they are here)
+# .idea/
+# *.iml
+# *.ipr
+# *.iws
+
+# Eclipse (duplicates from above, ensuring they are here)
+# .classpath
+# .project
+# .settings/
+# bin/ # Often source code is in bin for Eclipse, be careful
+
+# NetBeans (duplicates from above, ensuring they are here)
+# nbproject/private/
+# nbbuild/
+# dist/
+# nbdist/
+# .nb-gradle/
+
+# VS Code (duplicates from above, ensuring they are here)
+# .vscode/
+
+# Go
+# Compiled executables
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test binaries
+*.test
+
+# Output of go build
+# Assuming the binary is named 'redis-benchmark-go' as per build instructions
+redis-benchmark-go
+golang/redis-benchmark/redis-benchmark-go
+# Add other potential binary names if they vary
+
+# Go Module Folders
+vendor/
