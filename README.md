@@ -72,6 +72,83 @@ Or using the Gradle `run` task (arguments are passed after `--args`):
 
 The application will print the benchmark results, including total operations, operations per second (OPS), and average latency.
 
+---
+
+## Python Redis Benchmark
+
+### Original Prompt (Python version)
+
+create a sample python application connecting to redis , adding parallismand measuring operations per second and latency. Give the ability to provide parameters using command line
+
+Also make this prompt part of Readme
+
+---
+
+### Setting up and Running the Python Benchmark
+
+This project uses Python and relies on the `redis` package.
+
+#### Prerequisites
+
+*   Python (version 3.7 or higher recommended) installed.
+*   `pip` (Python package installer).
+*   A running Redis instance.
+
+#### Setup
+
+1.  Navigate to the `python/redis-benchmark` directory:
+    ```bash
+    cd python/redis-benchmark
+    ```
+2.  It is highly recommended to use a Python virtual environment:
+    ```bash
+    python -m venv venv
+    ```
+    Activate the virtual environment:
+    *   On Linux/macOS:
+        ```bash
+        source venv/bin/activate
+        ```
+    *   On Windows:
+        ```bash
+        venv\Scripts\activate
+        ```
+3.  Install the required dependencies:
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+#### Running
+
+After setting up the environment and installing dependencies, you can run the benchmark script.
+
+To run the application with default settings (connects to `localhost:6379`, 4 worker threads, 10000 operations per worker):
+
+```bash
+python benchmark.py
+```
+
+You can specify command-line arguments to change the behavior:
+
+*   `--host <hostname>`: Redis server hostname (e.g., `127.0.0.1`). Default: `localhost`.
+*   `--port <port_number>`: Redis server port (e.g., `6380`). Default: `6379`.
+*   `--workers <num_workers>`: Number of concurrent worker threads (e.g., `8`). Default: `4`.
+*   `--operations <num_ops_per_worker>`: Number of SET/GET operations each worker will perform (e.g., `50000`). Default: `10000`.
+*   `--password <password>`: Password for your Redis instance, if required. Default: None.
+
+**Example with custom parameters:**
+
+```bash
+python benchmark.py --host my.redis.server --port 6379 --workers 8 --operations 25000 --password "yourSecurePassword"
+```
+
+Deactivate the virtual environment when you're done:
+```bash
+deactivate
+```
+
+The application will print the benchmark results, including total operations, operations per second (OPS), and average latency.
+
 **Note:** The `build.gradle` includes the `application` plugin and shadow JAR configuration (or equivalent fat JAR) to package dependencies, so `java -jar build/libs/jedis-all.jar` (the JAR name might vary slightly based on exact Gradle config, e.g. `jedis.jar` or `jedis-VERSION-all.jar`) should work. If you encounter issues with finding the main class or dependencies, ensure your `build.gradle` correctly configures the `mainClassName` and packages the dependencies into the JAR. The provided `build.gradle` is set up to create a fat JAR.
 
 ---
