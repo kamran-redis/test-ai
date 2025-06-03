@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "fmDaRc48UrnXzx8UEz5oAoHjOc0TKcCGY/5wSw2MA3f0rQ7WQ21PKpRX3II/xupGjKkh/6FQ+1OVASj/q8Rogg==",
+  "success": true,
+  "projectFilePath": "/app/dotnet/dotnet.csproj",
+  "expectedPackageFiles": [
+    "/home/swebot/.nuget/packages/commandlineparser/2.9.1/commandlineparser.2.9.1.nupkg.sha512",
+    "/home/swebot/.nuget/packages/microsoft.extensions.logging.abstractions/6.0.0/microsoft.extensions.logging.abstractions.6.0.0.nupkg.sha512",
+    "/home/swebot/.nuget/packages/pipelines.sockets.unofficial/2.2.8/pipelines.sockets.unofficial.2.2.8.nupkg.sha512",
+    "/home/swebot/.nuget/packages/stackexchange.redis/2.8.37/stackexchange.redis.2.8.37.nupkg.sha512",
+    "/home/swebot/.nuget/packages/system.io.pipelines/5.0.1/system.io.pipelines.5.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}
