@@ -93,7 +93,7 @@ public class JedisBenchmark {
         List<Future<BenchmarkResult>> futures = new ArrayList<>();
         AtomicLong totalSuccessfulOps = new AtomicLong(0);
         AtomicLong totalLatencyNanos = new AtomicLong(0);
-
+        final int nos = numOperationsPerThread;
         long startTimeMillis = System.currentTimeMillis();
 
         for (int i = 0; i < numThreads; i++) {
@@ -102,7 +102,7 @@ public class JedisBenchmark {
                 long threadOps = 0;
                 long threadLatencySumNanos = 0;
                 try (Jedis jedis = jedisPool.getResource()) {
-                    for (int j = 0; j < numOperationsPerThread; j++) {
+                    for (int j = 0; j < nos; j++) {
                         String key = "thread-" + threadId + "-op-" + j;
                         String value = "value-" + j;
 
